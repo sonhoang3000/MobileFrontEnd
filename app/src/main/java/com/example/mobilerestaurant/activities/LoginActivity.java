@@ -12,6 +12,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import com.example.mobilerestaurant.R;
 import com.example.mobilerestaurant.api.RetrofitClient;
 import com.example.mobilerestaurant.model.LoginResponse;
+import com.example.mobilerestaurant.storage.SharedPrefManager;
 
 import retrofit2.Call;
 import retrofit2.Callback;
@@ -32,6 +33,17 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
 
         findViewById(R.id.buttonLogin).setOnClickListener(this);
         findViewById(R.id.textViewRegister).setOnClickListener(this);
+    }
+
+    @Override
+    protected void onStart() {
+        super.onStart();
+
+        if(SharedPrefManager.getInstance(this).isLoggedin()) {
+            Intent intent = new Intent(  this,ProfileActivity.class);
+            intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
+            startActivity(intent);
+        }
     }
 
     private void userLogin() {
@@ -73,7 +85,14 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
                 LoginResponse loginResponse = response.body();
 
                 if(loginResponse.isErrCode() == 0) {
-                    Toast.makeText(LoginActivity.this,loginResponse.getMessage(),Toast.LENGTH_LONG).show();
+
+                    SharedPrefManager.getInstance(LoginActivity.this)
+                            .saveUser(loginResponse.getUser());
+
+                    Intent intent = new Intent(LoginActivity.this,ProfileActivity.class);
+                    intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
+                    startActivity(intent);
+
                 }else {
                     Toast.makeText(LoginActivity.this,loginResponse.getMessage(), Toast.LENGTH_LONG).show();
                 }

@@ -12,6 +12,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import com.example.mobilerestaurant.R;
 import com.example.mobilerestaurant.api.RetrofitClient;
 import com.example.mobilerestaurant.model.DefaultResponse;
+import com.example.mobilerestaurant.storage.SharedPrefManager;
 
 import retrofit2.Call;
 import retrofit2.Callback;
@@ -34,6 +35,17 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         findViewById(R.id.buttonSignUp).setOnClickListener(this);
         findViewById(R.id.textViewLogin).setOnClickListener(this);
 
+    }
+
+    @Override
+    protected void onStart() {
+        super.onStart();
+
+        if(SharedPrefManager.getInstance(this).isLoggedin()) {
+            Intent intent = new Intent(this,ProfileActivity.class);
+            intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
+            startActivity(intent);
+        }
     }
 
     private void userSignUp() {
