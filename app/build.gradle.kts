@@ -37,8 +37,10 @@ dependencies {
     implementation(libs.appcompat)
     implementation(libs.material)
     implementation(libs.activity)
+//    implementation("com.android.support:design:28.0.0") {
+//        exclude(group = "com.android.support", module = "support-v4")
+//    }
     implementation(libs.constraintlayout)
-    implementation(libs.design)
     testImplementation(libs.junit)
     androidTestImplementation(libs.ext.junit)
     androidTestImplementation(libs.espresso.core)

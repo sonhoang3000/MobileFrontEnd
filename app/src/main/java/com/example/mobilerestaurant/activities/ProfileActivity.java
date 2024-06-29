@@ -2,13 +2,11 @@ package com.example.mobilerestaurant.activities;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.support.annotation.NonNull;
-import android.support.design.widget.BottomNavigationView;
-import android.support.design.widget.NavigationView;
 import android.view.MenuItem;
-import android.widget.TextView;
+
 
 import androidx.activity.EdgeToEdge;
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.Fragment;
 
@@ -16,10 +14,11 @@ import com.example.mobilerestaurant.R;
 import com.example.mobilerestaurant.fragments.HomeFragment;
 import com.example.mobilerestaurant.fragments.SettingsFragment;
 import com.example.mobilerestaurant.fragments.UsersFragment;
-import com.example.mobilerestaurant.model.User;
 import com.example.mobilerestaurant.storage.SharedPrefManager;
+import com.google.android.material.bottomnavigation.BottomNavigationView;
 
-public class ProfileActivity extends AppCompatActivity implements BottomNavigationView.OnNavigationItemSelectedListener {
+
+public class ProfileActivity extends AppCompatActivity implements BottomNavigationView.OnNavigationItemSelectedListener  {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -52,10 +51,12 @@ public class ProfileActivity extends AppCompatActivity implements BottomNavigati
         }
     }
 
+
     @Override
     public boolean onNavigationItemSelected(@NonNull MenuItem item) {
 
         Fragment fragment = null;
+
         switch (item.getItemId()) {
             case R.id.menu_home:
                 fragment = new HomeFragment();
@@ -67,7 +68,8 @@ public class ProfileActivity extends AppCompatActivity implements BottomNavigati
                 fragment = new SettingsFragment();
                 break;
         }
-        if(fragment !=null) {
+
+        if(fragment != null) {
             displayFragment(fragment);
         }
 
