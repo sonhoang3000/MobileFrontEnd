@@ -5,10 +5,13 @@ import com.example.mobilerestaurant.model.LoginResponse;
 import com.example.mobilerestaurant.model.UserResponse;
 
 import retrofit2.Call;
+import retrofit2.http.DELETE;
 import retrofit2.http.Field;
 import retrofit2.http.FormUrlEncoded;
 import retrofit2.http.GET;
 import retrofit2.http.POST;
+import retrofit2.http.PUT;
+import retrofit2.http.Path;
 
 public interface Api {
     @FormUrlEncoded
@@ -27,7 +30,18 @@ public interface Api {
     );
 
     @GET("/api/get-all-users")
-    Call<UserResponse> getUsers (
+    Call<UserResponse> getUsers ();
+
+    @FormUrlEncoded
+    @PUT("/api/edit-user/{userId}")
+        Call<LoginResponse> editUser(
+            @Path("userId") String userId,
+            @Field("name") String name
+    );
+
+    @DELETE("/api/delete-user/{userId}")
+    Call<DefaultResponse> deleteUser(
+            @Path("userId") String userId
     );
 
 

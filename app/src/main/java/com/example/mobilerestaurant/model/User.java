@@ -2,17 +2,17 @@ package com.example.mobilerestaurant.model;
 
 public class User {
 
-    private int id;
+    private String _id;
     private String email,name;
 
-    public User(int id, String email, String name) {
-        this.id = id;
+    public User(String _id, String email, String name) {
+        this._id = _id;
         this.email = email;
         this.name = name;
     }
 
-    public int getId() {
-        return id;
+    public String getId() {
+        return _id;
     }
 
     public String getEmail() {

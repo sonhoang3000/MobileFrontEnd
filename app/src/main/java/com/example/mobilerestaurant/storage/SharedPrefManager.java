@@ -26,8 +26,7 @@ public class SharedPrefManager {
         SharedPreferences sharedPreferences = mCtx.getSharedPreferences(SHARED_PREF_NAME, Context.MODE_PRIVATE);
         SharedPreferences.Editor editor = sharedPreferences.edit();
 
-        editor.putInt("id",user.getId());
-        editor.putString("email",user.getEmail());
+        editor.putString("_id",user.getId());
         editor.putString("name",user.getName());
 
         editor.apply();
@@ -36,13 +35,14 @@ public class SharedPrefManager {
 
     public boolean isLoggedin() {
         SharedPreferences sharedPreferences = mCtx.getSharedPreferences(SHARED_PREF_NAME,Context.MODE_PRIVATE);
-        return sharedPreferences.getInt("id",-1) != -1;
+        return sharedPreferences.getString("_id",null) != null;
     }
 
     public User getUser() {
         SharedPreferences sharedPreferences = mCtx.getSharedPreferences(SHARED_PREF_NAME,Context.MODE_PRIVATE);
         return new User(
-                sharedPreferences.getInt("id",-1),
+
+                sharedPreferences.getString("_id",null),
                 sharedPreferences.getString("email",null),
                 sharedPreferences.getString("name",null)
         );
