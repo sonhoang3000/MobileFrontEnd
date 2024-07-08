@@ -19,6 +19,11 @@
             android:name=".activities.ProfileActivity"
             android:exported="false" />
         <activity
+            android:name=".activities.AddMenuActivity"
+            android:exported="false"
+            />
+
+        <activity
             android:name=".activities.LoginActivity"
             android:exported="false" />
         <activity

@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.appcompat.widget.LinearLayoutCompat xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    xmlns:tools="http://schemas.android.com/tools"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:background="@color/white"
+    android:orientation="vertical"
+    android:layout_height="match_parent">
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <androidx.appcompat.widget.AppCompatImageView
+            android:layout_centerVertical="true"
+            android:id="@+id/icBack"
+            android:layout_width="40dp"
+            android:layout_marginLeft="12dp"
+            android:padding="8dp"
+            android:src="@drawable/ic_baseline_close_24"
+            android:layout_height="40dp"/>
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:layout_gravity="center"
+            android:text="Thêm đồ uống"
+            android:textColor="@color/design_default_color_primary"
+            android:textSize="20sp"
+            tools:ignore="HardcodedText" />
+    </RelativeLayout>
+
+    <LinearLayout
+        android:id="@+id/linearLayout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_centerVertical="true"
+        android:layout_marginLeft="12dp"
+        android:layout_marginRight="12dp"
+        android:orientation="vertical"
+        >
+
+        <EditText
+            android:id="@+id/nameProduct"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:drawablePadding="5dp"
+            android:hint="Tên món "
+            />
+
+        <EditText
+            android:id="@+id/priceProduct"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:drawablePadding="5dp"
+            android:hint="giá"
+             />
+
+        <EditText
+            android:id="@+id/unitProduct"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:drawablePadding="5dp"
+            android:hint="đơn vị"
+             />
+
+
+    </LinearLayout>
+
+
+    <Button
+        android:id="@+id/btnAddMenuProduct"
+        android:layout_margin="12dp"
+        android:background="@drawable/bg_radius_blue"
+        android:gravity="center"
+        android:text="Thêm"
+        android:layout_width="match_parent"
+        android:layout_height="45dp"/>
+
+
+</androidx.appcompat.widget.LinearLayoutCompat>

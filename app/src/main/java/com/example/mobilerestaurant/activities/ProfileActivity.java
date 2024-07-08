@@ -12,6 +12,7 @@ import androidx.fragment.app.Fragment;
 
 import com.example.mobilerestaurant.R;
 import com.example.mobilerestaurant.fragments.HomeFragment;
+import com.example.mobilerestaurant.fragments.MenuFragment;
 import com.example.mobilerestaurant.fragments.SettingsFragment;
 import com.example.mobilerestaurant.fragments.UsersFragment;
 import com.example.mobilerestaurant.storage.SharedPrefManager;
@@ -66,6 +67,9 @@ public class ProfileActivity extends AppCompatActivity implements BottomNavigati
                 break;
             case R.id.menu_settings:
                 fragment = new SettingsFragment();
+                break;
+            case R.id.menu_food:
+                fragment = new MenuFragment();
                 break;
         }
 

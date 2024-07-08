@@ -2,6 +2,7 @@ package com.example.mobilerestaurant.api;
 
 import com.example.mobilerestaurant.model.DefaultResponse;
 import com.example.mobilerestaurant.model.LoginResponse;
+import com.example.mobilerestaurant.model.ProductResponse;
 import com.example.mobilerestaurant.model.UserResponse;
 
 import retrofit2.Call;
@@ -14,6 +15,8 @@ import retrofit2.http.PUT;
 import retrofit2.http.Path;
 
 public interface Api {
+
+    // user
     @FormUrlEncoded
     @POST("/api/create-new-user")
     Call<DefaultResponse> createNewUser(
@@ -44,5 +47,16 @@ public interface Api {
             @Path("userId") String userId
     );
 
+    //product
+    @FormUrlEncoded
+    @POST("/api/createProduct")
+    Call<DefaultResponse> createNewProduct(
+            @Field("name") String name,
+            @Field("price") String price,
+            @Field("unit") String unit
+    );
+
+    @GET("/api/get-all-products")
+    Call<ProductResponse> getProducts ();
 
 }
